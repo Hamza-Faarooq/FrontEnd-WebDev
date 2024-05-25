@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Interactive Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Interactive Quiz</h1>
+    </header>
+    <main>
+        <section id="welcome">
+            <h2>Welcome to the Quiz!</h2>
+            <button onclick="startQuiz()">Start</button>
+        </section>
+        <section id="quiz" style="display: none;">
+            <form id="quiz-form">
+                <fieldset>
+                    <legend>Question 1</legend>
+                    <label><input type="radio" name="q1" value="a"> Option A</label><br>
+                    <label><input type="radio" name="q1" value="b"> Option B</label><br>
+                    <label><input type="radio" name="q1" value="c"> Option C</label><br>
+                    <label><input type="radio" name="q1" value="d"> Option D</label>
+                </fieldset>
+                <fieldset>
+                    <legend>Question 2</legend>
+                    <label><input type="radio" name="q2" value="a"> Option A</label><br>
+                    <label><input type="radio" name="q2" value="b"> Option B</label><br>
+                    <label><input type="radio" name="q2" value="c"> Option C</label><br>
+                    <label><input type="radio" name="q2" value="d"> Option D</label>
+                </fieldset>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <section id="result" style="display: none;">
+            <h2>Your Results</h2>
+            <p id="result-text"></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Interactive Quiz</p>
+    </footer>
+    <script>
+        function startQuiz() {
+            document.getElementById('welcome').style.display = 'none';
+            document.getElementById('quiz').style.display = 'block';
+        }
+
+        document.getElementById('quiz-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let resultText = 'You have completed the quiz!';
+            document.getElementById('quiz').style.display = 'none';
+            document.getElementById('result-text').textContent = resultText;
+            document.getElementById('result').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
